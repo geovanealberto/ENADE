@@ -1,5 +1,7 @@
 package io.github.geovanealberto.usuarios.service;
 
+import io.github.geovanealberto.usuarios.dto.GraficoDTO;
+import io.github.geovanealberto.usuarios.model.repository.UsuarioRepository;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -8,10 +10,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.ServletContext;
-import java.io.File;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.util.HashMap;
+import java.util.List;
 
 @Service
 public class RelatorioService implements Serializable {
@@ -20,6 +22,9 @@ public class RelatorioService implements Serializable {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
     public byte[] gerarRelatorio (String nomeRelatorio, ServletContext servletContext) throws Exception {
 
@@ -43,4 +48,11 @@ public class RelatorioService implements Serializable {
 
     }
 
+    /*public List<Usuario> listUsuario(){
+        return usuarioRepository.teste();
+    }*/
+
+    public List<GraficoDTO> listGraficoDTO(){
+        return usuarioRepository.listaGraficos();
+    }
 }

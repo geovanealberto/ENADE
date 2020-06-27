@@ -1,9 +1,11 @@
 package io.github.geovanealberto.usuarios.dto;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+
 public class UsuarioDTO {
 
 

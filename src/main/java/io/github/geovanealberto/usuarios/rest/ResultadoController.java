@@ -2,6 +2,7 @@ package io.github.geovanealberto.usuarios.rest;
 
 import io.github.geovanealberto.usuarios.converter.ResultadoConverter;
 import io.github.geovanealberto.usuarios.dto.ResultadoDTO;
+import io.github.geovanealberto.usuarios.dto.GraficoDTO;
 import io.github.geovanealberto.usuarios.model.entity.Grafico;
 import io.github.geovanealberto.usuarios.model.entity.Resultado;
 import io.github.geovanealberto.usuarios.model.repository.ResultadoRepository;
@@ -84,29 +85,13 @@ public class ResultadoController {
 
     }
 
+
     @GetMapping(value = "/grafico", produces = "application/json")
-    public ResponseEntity<Grafico> grafico(){
-
-        Grafico grafico = new Grafico();
-
-        List<String> resultadoGrafico = jdbcTemplate.queryForList("SELECT u.nomeUsuario tbusuario, r.valorObtido AS tbresultado\n" +
-                "FROM tbusuario AS u\n" +
-                "INNER JOIN tbresultado AS r ON u.idUsuario = r.tbUsuario_idUsuario", String.class);
-
-        if (!resultadoGrafico.isEmpty()){
-            String nome = resultadoGrafico.get(0).replaceAll("\\{", "").replaceAll("\\}", "");
-            String nota = resultadoGrafico.get(1).replaceAll("\\{", "").replaceAll("\\}", "");
-
-            grafico.setNome(nome);
-            grafico.setNota(nota);
-
-        }
-        return new ResponseEntity<Grafico>(grafico, HttpStatus.OK);
-
+    public ResponseEntity <List <GraficoDTO>> teste () {
+      List<GraficoDTO> var = relatorioService.listGraficoDTO();
+        ResponseEntity<List<GraficoDTO>> listResponseEntity = new ResponseEntity<List<GraficoDTO>>(var,HttpStatus.OK);
+        return listResponseEntity;
     }
-
-
-
 
 
 }
