@@ -48,6 +48,8 @@ public class RelatorioService implements Serializable {
 
     }
 
+
+
     /*public List<Usuario> listUsuario(){
         return usuarioRepository.teste();
     }*/

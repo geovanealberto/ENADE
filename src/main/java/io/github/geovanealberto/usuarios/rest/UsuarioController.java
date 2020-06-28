@@ -5,11 +5,16 @@ import io.github.geovanealberto.usuarios.converter.UsuarioConverter;
 import io.github.geovanealberto.usuarios.dto.UsuarioDTO;
 import io.github.geovanealberto.usuarios.model.entity.Usuario;
 import io.github.geovanealberto.usuarios.model.repository.UsuarioRepository;
+import io.github.geovanealberto.usuarios.service.RelatorioService;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -19,6 +24,12 @@ import java.util.List;
 public class UsuarioController {
 
     private final UsuarioRepository repository;
+
+    @Autowired
+    private RelatorioService relatorioService;
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @Autowired
     public UsuarioController(UsuarioRepository repository) {
@@ -76,5 +87,17 @@ public class UsuarioController {
                     return repository.save(usuario);
                 })
                 .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario nao encontrado"));
+    }
+
+
+    @GetMapping(value ="/relatorio", produces = "application/text")
+    public ResponseEntity<String> downloadRelatorioUsuario(HttpServletRequest request) throws Exception{
+        byte[] pdf = relatorioService.gerarRelatorio("relatorio_usuarios",
+                request.getServletContext());
+
+        String base64Pdf = "data:application/pdf;base64," + Base64.encodeBase64String(pdf);
+
+        return new ResponseEntity<String>(base64Pdf, HttpStatus.OK);
+
     }
 }
