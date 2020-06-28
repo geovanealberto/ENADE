@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_usuarios" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1c39df28-9f32-4b02-b002-4ecab1b3ec31">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[select * from tbusuario]]>
+	</queryString>
+	<field name="idUsuario" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="idUsuario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbusuario"/>
+	</field>
+	<field name="nomeUsuario" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nomeUsuario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbusuario"/>
+	</field>
+	<field name="emailUsuario" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="emailUsuario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbusuario"/>
+	</field>
+	<field name="senhaUsuario" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="senhaUsuario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbusuario"/>
+	</field>
+	<field name="tbTipoUsuario_idTipoUsuario" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="tbTipoUsuario_idTipoUsuario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbusuario"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{idUsuario}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="37fbc610-ead8-4588-b72e-a188e3211256"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Id do Usuario]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="c0d5347c-214c-468a-a55a-b19ac7bdd811"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{idUsuario}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="43a05138-f97d-4415-a6d1-f2caae788d61"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{nomeUsuario}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="7d95faca-b243-4c17-bf09-d1c03e321c53"/>
+					<textElement>
+						<font size="22" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nomeUsuario}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="685309cd-e85f-43d5-9943-4afb2a698c55"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[nomeUsuario]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group3">
+		<groupExpression><![CDATA[$F{emailUsuario}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="b5c5b321-420e-4daf-96b3-1cc0663f4484"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{emailUsuario}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="33f1d96a-f856-4039-a04d-645c695c434c"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Email do Usuario]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group4">
+		<groupExpression><![CDATA[$F{senhaUsuario}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="f775a7ad-3cb2-43b5-8c6f-46a910185305"/>
+					<textElement>
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{senhaUsuario}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="34ff5ae8-5c58-4e46-81d9-c04b17116b4f"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Senha do Usuario]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="tbTipoUsuario_idTipoUsuario">
+		<groupExpression><![CDATA[$F{tbTipoUsuario_idTipoUsuario}]]></groupExpression>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="046a91ad-e52f-4767-bbff-7a7476c8740a"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="dc77b1e5-8775-4204-8bc2-3578cc3be530"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Simulado ENADE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="abedee00-1167-450d-b16f-a58c3afda1cf"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Relatorio dos Usuarios]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="50df11b6-76b9-4ecd-a325-d6279f19b0cb"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="64c5c20d-d3e1-42ec-aaf3-b48ec6fdf1ee"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="2f7cfc4f-928b-492d-8ef4-3a5d55b0cf57"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="7ed85a3a-fa25-4605-8685-945251804dff"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="6b5b1a5f-3b13-4243-9a29-d143d97415e9"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
